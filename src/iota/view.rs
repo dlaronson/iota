@@ -224,7 +224,7 @@ impl<'v> View<'v> {
     pub fn redo(&mut self) {
         let point = if let Some(transaction) = self.buffer.redo() { transaction.end_point }
                     else { return; };
-        self.buffer.set_mark(self.cursor, point);
+        self.buffer.set_mark(self.cursor, point + 1);
         self.move_screen();
     }
 
